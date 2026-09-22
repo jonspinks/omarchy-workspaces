@@ -4,9 +4,21 @@ The Omarchy workspace indicator, with one addition: a workspace that is being
 streamed to a television shows a TV glyph instead of its number, and always
 sorts to the right-hand end of the row.
 
-Installed as the bar widget `jon.workspaces`, a clone of the stock
+Installed as the bar widget `blacksheep.workspaces`, a clone of the stock
 `omarchy.workspaces` (`omarchy plugin clone omarchy.workspaces`), so it
 survives `omarchy update` instead of being overwritten.
+
+## Install
+
+```bash
+omarchy plugin add https://github.com/jonspinks/omarchy-workspaces --enable
+omarchy plugin disable omarchy.workspaces   # it replaces the stock widget
+omarchy restart shell
+```
+
+It needs [omarchy-airplay](https://github.com/jonspinks/omarchy-airplay) to be
+useful, but not to run: without a headless `AIRPLAY-*` output it behaves exactly
+like the stock indicator.
 
 ## Why
 

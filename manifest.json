@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "jon.workspaces",
-  "name": "My Workspaces",
+  "id": "blacksheep.workspaces",
+  "name": "Cast Workspaces",
   "version": "1.0.0",
-  "author": "Omarchy",
-  "description": "Workspace number indicators",
+  "author": "Jon",
+  "description": "Workspace indicators that mark which workspace is streaming to a TV",
   "kinds": [
     "bar-widget"
   ],
@@ -12,8 +12,8 @@
     "barWidget": "Workspaces.qml"
   },
   "barWidget": {
-    "displayName": "My Workspaces",
-    "description": "Workspace number indicators",
+    "displayName": "Cast Workspaces",
+    "description": "Workspace number indicators, except that a workspace on an AirPlay headless output shows a TV glyph and sorts to the right-hand end.",
     "category": "Compositor",
     "allowMultiple": false
   },
