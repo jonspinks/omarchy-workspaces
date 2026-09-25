@@ -6,6 +6,9 @@ import qs.Ui
 
 BarWidget {
   id: root
+  // Left as the stock id on purpose, as `omarchy plugin clone` does: the bar
+  // overwrites moduleName with this plugin's own id when it loads the widget,
+  // and the manifest's clonedFrom routes calls to the old id here.
   moduleName: "omarchy.workspaces"
 
   function workspaceById(id) {

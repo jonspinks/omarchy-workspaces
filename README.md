@@ -20,6 +20,17 @@ It needs [omarchy-airplay](https://github.com/jonspinks/omarchy-airplay) to be
 useful, but not to run: without a headless `AIRPLAY-*` output it behaves exactly
 like the stock indicator.
 
+## Remove
+
+```bash
+omarchy plugin remove blacksheep.workspaces
+omarchy plugin enable omarchy.workspaces    # bring the stock widget back
+omarchy restart shell
+```
+
+The widget itself stores nothing and writes no files, so there is nothing else to
+clean up.
+
 ## Why
 
 [omarchy-airplay](https://github.com/jonspinks/omarchy-airplay) has an Extend
@@ -58,3 +69,9 @@ Three small edits to `Workspaces.qml`:
   button.
 - Nothing here is AirPlay-specific beyond the `AIRPLAY-` prefix. Any headless
   output named that way gets the glyph.
+
+## License
+
+MIT — see [LICENSE](LICENSE). `Workspaces.qml` is derived from Omarchy's stock
+widget, © David Heinemeier Hansson, also MIT; that notice is kept in the
+license file.
