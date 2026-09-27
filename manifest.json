@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Jon",
   "license": "MIT",
-  "description": "Workspace indicators that mark which workspace is streaming to a TV",
+  "description": "The TV in your workspace bar: marks the workspace AirPlay's second desktop puts on your TV",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Cast Workspaces",
-    "description": "Workspace number indicators, except that a workspace on an AirPlay headless output shows a TV glyph and sorts to the right-hand end.",
+    "description": "Omarchy's workspace indicator, plus a TV icon at the end of the row for the workspace on your television, so switching to it is one click. Part of AirPlay for Omarchy.",
     "category": "Compositor",
     "allowMultiple": false
   },
