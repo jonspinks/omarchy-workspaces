@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "author": "Jon",
   "license": "MIT",
-  "description": "The TV in your workspace bar: marks the workspace AirPlay's second desktop puts on your TV",
+  "description": "Your TV shows up as its own workspace in the bar, one click away. The companion to AirPlay for Omarchy.",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Cast Workspaces",
-    "description": "Omarchy's workspace indicator, plus a TV icon at the end of the row for the workspace on your television, so switching to it is one click. Part of AirPlay for Omarchy.",
+    "description": "Omarchy's workspace bar, plus a TV icon for the desktop that's on your TV, so it's always one click away.",
     "category": "Compositor",
     "allowMultiple": false
   },
