@@ -8,6 +8,24 @@ Installed as the bar widget `blacksheep.workspaces`, a clone of the stock
 `omarchy.workspaces` (`omarchy plugin clone omarchy.workspaces`), so it
 survives `omarchy update` instead of being overwritten.
 
+## Designed for the AirPlay set
+
+This widget is the third piece of AirPlay on Omarchy, and it is meant to be
+installed with the other two:
+
+- [omarchy-airplay](https://github.com/jonspinks/omarchy-airplay), the sender
+  that does the streaming;
+- [omarchy-cast](https://github.com/jonspinks/omarchy-cast) (`blacksheep.airplay`),
+  the bar menu that drives it.
+
+On its own it has nothing to show. The TV glyph appears only on a workspace that
+the sender's **Extend** mode has put on a television, so without the sender this
+is simply the stock indicator. With the other two, it is what makes Extend
+usable: the TV's workspace otherwise looks like any other number in the bar,
+and you can't tell which one to send a window to. [omarchy-cast's
+README](https://github.com/jonspinks/omarchy-cast#the-full-set) covers the whole
+setup, in order.
+
 ## Install
 
 ```bash
@@ -16,9 +34,10 @@ omarchy plugin disable omarchy.workspaces   # it replaces the stock widget
 omarchy restart shell
 ```
 
-It needs [omarchy-airplay](https://github.com/jonspinks/omarchy-airplay) to be
-useful, but not to run: without a headless `AIRPLAY-*` output it behaves exactly
-like the stock indicator.
+Install the sender and omarchy-cast first; their steps are in [omarchy-cast's
+README](https://github.com/jonspinks/omarchy-cast#install). This widget needs
+them to be useful, but not to run: without a headless `AIRPLAY-*` output it
+behaves exactly like the stock indicator.
 
 ## Remove
 
