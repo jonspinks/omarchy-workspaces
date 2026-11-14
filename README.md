@@ -119,31 +119,31 @@ no way to tell which of them is the one on the TV. Hence the glyph.
 
 ## What changed from the stock widget
 
-Three small edits to `Workspaces.qml`:
+`Workspaces.qml` is Omarchy 4.5's stock widget, which keeps its per-monitor
+workspaces, its layout glyph and click-to-cycle on the shown workspace, and
+wheel scrolling. The changes on top:
 
-- `isAirplay(id)` — true when the workspace's monitor name starts with
+- `isAirplay(id)` is true when the workspace's monitor name starts with
   `AIRPLAY-`. It reads `HyprlandWorkspace.monitor`, a live property, so this
   needs no polling, no state file and no help from the daemon.
-- The button renders `󰍹` (U+F0379 nf-md-television) in place of its number.
-  Focus still wins over the glyph, so the focused marker means what it always
-  did — and the TV glyph is showing exactly when it is useful, which is while
-  you are looking at a different workspace. An AirPlay workspace also keeps
-  full opacity while empty, because it is a live destination rather than a
-  spare number.
-- AirPlay workspaces sort last, whatever their id. The daemon picks the next
-  free id above both the highest in use and the bar's five always-rendered
-  defaults, so a fresh session lands on the right-hand end by number alone —
-  but ids never renumber. Take 6 for the TV, open 7 and 8 later, and a plain
-  numeric sort would leave the television stranded in the middle of the row.
+- A TV workspace renders `󰍹` (U+F0379 nf-md-television) in place of its number,
+  keeps full opacity while empty (it is a live destination, not a spare
+  number), and has a tooltip.
+- TV workspaces sit at the end of **every** bar's row, after a gap, whatever
+  their id. They are on no physical monitor, so no bar would otherwise own
+  them, and on 4.5 their id may be anywhere: per-monitor workspaces give each
+  new output, headless ones included, a block of ten of its own.
+- Clicking a TV workspace focuses it by id, never through the per-monitor
+  slot, so it never lands on the clicked bar's own monitor.
+- The bar also refreshes when an output is added or removed.
 
 ## Notes
 
-- The bar renders workspace ids 1-10 only, and always draws 1-5 whether or not
-  they are in use. The daemon knows both facts: it appends past the defaults,
-  and it refuses to start rather than place the TV on a workspace with no
-  button.
 - Nothing here is AirPlay-specific beyond the `AIRPLAY-` prefix. Any headless
   output named that way gets the glyph.
+- When Omarchy changes its own widget, carry the change over: diff
+  `/usr/share/omarchy/shell/plugins/bar/widgets/Workspaces.qml` against this
+  file. Last rebased on Omarchy 4.5.0-3.
 
 ## License
 
