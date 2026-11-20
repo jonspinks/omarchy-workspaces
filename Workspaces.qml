@@ -165,8 +165,8 @@ BarWidget {
   }
 
   // The workspace each monitor shows carries its layout: a square tiles, a
-  // circle scrolls, and a triangle floats. Clicking it cycles to the next one,
-  // as Super + L does.
+  // circle scrolls, and a triangle floats. Unlike stock, clicking it does
+  // nothing: a stray click kept changing the layout. Super + L still cycles.
   property string activeMode: "dwindle"
   property bool modeStale: false
 
@@ -209,16 +209,6 @@ BarWidget {
     readMode()
   }
 
-  // The layout commands act on the focused workspace, so a click on another
-  // monitor's bar focuses that monitor first.
-  function cycleLayout() {
-    if (!root.bar) return
-    var command = "omarchy-hyprland-workspace-layout-toggle"
-    if (root.monitor && !root.monitor.focused) {
-      command = "hyprctl dispatch " + Util.shellQuote("hl.dsp.focus({ monitor = \"" + root.monitorName + "\" })") + " >/dev/null && " + command
-    }
-    root.bar.run(command)
-  }
 
   Component.onCompleted: refresh()
   onMonitorChanged: root.showActiveMode()
@@ -321,8 +311,7 @@ BarWidget {
         fixedWidth: root.vertical ? root.barSize : Style.space(20)
         fixedHeight: root.barSize
         onPressed: function() {
-          if (shown) root.cycleLayout()
-          else root.focusWorkspace(modelData)
+          if (!shown) root.focusWorkspace(modelData)
         }
         onWheelMoved: function(delta) { root.scrollWorkspaces(delta) }
       }
